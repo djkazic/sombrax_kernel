@@ -14,6 +14,7 @@
 
 #ifdef CONFIG_POWERSUSPEND
 #include <linux/powersuspend.h>
+void set_power_suspend_state_panel_hook(int);
 #endif
 
 #include <linux/fb.h>/*ZTE*/
@@ -123,12 +124,12 @@ int pm_autosleep_set_state(suspend_state_t state)
 		pm_wakep_autosleep_enabled(true);
 		queue_up_suspend_work();
 #ifdef CONFIG_POWERSUSPEND
-		set_power_suspend_state_autosleep_hook(POWER_SUSPEND_ACTIVE); // Yank555.lu : add hook to handle powersuspend tasks
+		set_power_suspend_state_panel_hook(POWER_SUSPEND_ACTIVE); // Yank555.lu : add hook to handle powersuspend tasks
 #endif
 	} else {
 		pm_wakep_autosleep_enabled(false);
 #ifdef CONFIG_POWERSUSPEND
-		set_power_suspend_state_autosleep_hook(POWER_SUSPEND_INACTIVE); // Yank555.lu : add hook to handle powersuspend tasks
+		set_power_suspend_state_panel_hook(POWER_SUSPEND_INACTIVE); // Yank555.lu : add hook to handle powersuspend tasks
 #endif
 	}
 
