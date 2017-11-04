@@ -225,7 +225,7 @@ int force_page_cache_readahead(struct address_space *mapping, struct file *filp,
 
 //		unsigned long this_chunk = (2 * 1024 * 1024) / PAGE_CACHE_SIZE;
 		unsigned long this_chunk = (2097152) >> PAGE_CACHE_SHIFT;
-		
+
 		if (this_chunk > nr_to_read)
 			this_chunk = nr_to_read;
 		err = __do_page_cache_readahead(mapping, filp,
@@ -248,7 +248,7 @@ int force_page_cache_readahead(struct address_space *mapping, struct file *filp,
 unsigned long max_sane_readahead(unsigned long nr)
 {
 	return min(nr, (node_page_state(numa_node_id(), NR_INACTIVE_FILE)
-		node_page_state(numa_node_id(), NR_FREE_PAGES)) >> 1);
+		+ node_page_state(numa_node_id(), NR_FREE_PAGES)) >> 1);
 }
 
 /*
