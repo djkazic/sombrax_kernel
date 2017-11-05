@@ -637,3 +637,9 @@ CONFIG_QCOM_VOWIFI_11R=y
 CONFIG_WLAN_FEATURE_11W=y
 CONFIG_ENABLE_LINUX_REG=y
 CONFIG_WLAN_OFFLOAD_PACKETS=y
+
+# experimental flags
+
+
+# experimental performance flags
+CONFIG_KSM=y
