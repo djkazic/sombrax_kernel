@@ -643,6 +643,5 @@ CONFIG_WLAN_OFFLOAD_PACKETS=y
 
 # experimental flags
 
-
 # experimental performance flags
 CONFIG_KSM=y
