@@ -645,3 +645,4 @@ CONFIG_WLAN_OFFLOAD_PACKETS=y
 
 # experimental performance flags
 CONFIG_KSM=y
+CONFIG_KERNEL_MODE_NEON=y
