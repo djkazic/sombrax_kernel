@@ -36,7 +36,7 @@ echo
 echo "Zipping sombrax with AnyKernel 2..."
 echo
 version=$(cat .version)
-kernel_date=$(echo $(date +%Y-%m-%d-%H:%M))
+kernel_date=$(echo $(date +%Y-%m-%d-%H%M))
 cd ~/sombrax/
 name_zip="sombrax-v${version}-${kernel_date}.zip"
 zip -r $name_zip ./*
