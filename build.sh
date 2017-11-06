@@ -1,5 +1,5 @@
 echo "Setting env variables for pre-compile..."
-export CROSS_COMPILE="/home/synthlock/toolchains/aarch64-linaro-linux-android/bin/aarch64-linaro-linux-android-"
+export CROSS_COMPILE="/home/synthlock/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android-"
 export ARCH="arm64"
 echo "Sanity check:"
 echo $ARCH
@@ -33,7 +33,7 @@ cp arch/arm64/boot/Image.gz-dtb ~/sombrax/
 echo
 echo "Stripping wlan.ko module..."
 echo
-$CROSS_COMPILE strip --strip-debug drivers/staging/prima/wlan.ko
+$(echo $CROSS_COMPILE)strip --strip-debug drivers/staging/prima/wlan.ko
 
 echo
 echo "Copying modules to sombrax builder..."
