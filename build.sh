@@ -1,3 +1,9 @@
+symvers="Module.symvers"
+has_symvers=false
+if [ -b "$symvers" ]; then
+	has_symvers=true
+fi
+
 echo "Setting env variables for pre-compile..."
 export CROSS_COMPILE="/home/synthlock/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android-"
 export ARCH="arm64"
@@ -49,6 +55,11 @@ cd ~/sombrax/
 name_zip="sombrax-v${version}-${kernel_date}.zip"
 zip -r $name_zip ./*
 mv $name_zip ~
+
+if [ "$has_symvers" = false ]; then
+	echo "Re-running build.sh because of symvers generation..."
+	./$(basename $0) && exit
+fi
 
 echo
 echo "Done!"
