@@ -33,7 +33,7 @@ cp arch/arm64/boot/Image.gz-dtb ~/sombrax/
 echo
 echo "Stripping wlan.ko module..."
 echo
-$CROSS_COMPILE-strip --strip-debug drivers/staging/prima/wlan.ko
+$CROSS_COMPILE strip --strip-debug drivers/staging/prima/wlan.ko
 
 echo
 echo "Copying modules to sombrax builder..."
